@@ -1,202 +1,239 @@
 <html lang="fr"> 
- <head> 
+<head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Trouver Votre Avenir : Accompagnement Complet vers les Bourses d'Études Internationales</title> 
   <!-- Lien vers Font Awesome pour les icônes --> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+
   <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000; /* Mode sombre par défaut */
+        line-height: 1.6;
+        font-size: 18px;
+        color: #fff; /* Texte blanc pour le mode sombre */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Transitions fluides entre les modes */
+    }
 
-        /* Nouveau fond avec une belle photo d'étudiants */
-        header {
-            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644'); /* Image représentant des étudiants de diverses origines */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
+   header {
+    background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644'); /* Image représentant des étudiants de diverses origines */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+    /* Mode clair pour le header */
+    header.light-mode {
+        color: #333; /* Texte noir en mode clair */
+        background-color: #f4f4f4;
+    }
 
-        /* Texte motivant */
-        .motivating-text {
-            font-size: 20px;
-            font-style: italic;
-            margin-top: 20px;
-            color: #fff;
-        }
+    /* Bouton pour changer de thème */
+    .theme-toggle-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 20px;
+        transition: background-color 0.3s ease;
+    }
 
-        /* Amélioration des boutons avec icônes */
-        .cta-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+    .theme-toggle-button:hover {
+        background-color: #45a049;
+    }
 
-        .cta-button i {
-            margin-right: 10px;
-        }
+    .show-countries-button, .show-services-button {
+        background-color: #ff6f61;
+        color: white;
+        padding: 15px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 20px 0;
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
 
-        .cta-button:hover {
-            background-color: #e55b50;
-        }
+    .show-countries-button:hover, .show-services-button:hover {
+        background-color: #e55b50;
+        transform: scale(1.05);
+    }
 
-        .container {
-            padding: 20px;
-            display: none; /* Les services sont cachés au départ */
-        }
+    /* Style pour la liste des pays et des bourses */
+    .country-list {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    }
 
-        .services {
-            margin-top: 50px;
-        }
+    .country-list ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-        .service {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            background-color: white;
-        }
+    .country-list li {
+        margin-bottom: 10px;
+        font-size: 18px;
+        background-color: #444;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        transition: box-shadow 0.3s ease-in-out;
+    }
 
-        /* Ajout des icônes pour chaque service */
-        .service i {
-            margin-right: 10px;
-            color: #4CAF50;
-        }
+    .country-list img {
+        width: 30px;
+        height: 20px;
+        margin-right: 10px;
+    }
 
-        /* Style du carrousel */
-        .carousel {
-            position: relative;
-            margin-top: 50px;
-            text-align: center;
-        }
+    .country-list li:hover {
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
 
-        .carousel-container {
-            display: flex;
-            overflow: hidden;
-            justify-content: center;
-        }
+    .country-list h3 {
+        margin-bottom: 10px;
+        color: #4CAF50;
+    }
 
-        .carousel-item {
-            min-width: 150px;
-            margin: 0 10px;
-            padding: 20px;
-            background-color: #ddd;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 18px;
-            transition: transform 0.5s ease-in-out;
-        }
+    .cta-button {
+        background-color: #ff6f61;
+        color: white;
+        padding: 15px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
 
-        button.prev, button.next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
+    .cta-button:hover {
+        background-color: #e55b50;
+        transform: scale(1.05);
+    }
 
-        button.prev {
-            left: 0;
-        }
+    /* Fluidité du site avec des transitions douces */
+    .service {
+        border: 1px solid #444;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        background-color: #333;
+        transition: box-shadow 0.3s ease-in-out;
+        color: #fff;
+    }
 
-        button.next {
-            right: 0;
-        }
+    .service:hover {
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        background-color: #444;
+    }
 
-        button.prev:hover, button.next:hover {
-            background-color: #45a049;
-        }
+    /* Clair Mode Styles */
+    body.light-mode {
+        background-color: #f9f9f9;
+        color: #333; /* Texte noir pour le mode clair */
+    }
 
-        /* Style pour le formulaire de contact */
-        .contact {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .country-list.light-mode {
+        background-color: #f7f7f7;
+    }
 
-        .contact form {
-            display: flex;
-            flex-direction: column;
-        }
+    .service.light-mode {
+        background-color: #fff;
+        color: #333;
+    }
 
-        .contact label {
-            margin-top: 10px;
-        }
+    .cta-button.light-mode, .show-countries-button.light-mode, .show-services-button.light-mode {
+        background-color: #4CAF50;
+        color: white;
+    }
 
-        .contact input, .contact textarea {
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
+    .cta-button.light-mode:hover, .show-countries-button.light-mode:hover, .show-services-button.light-mode:hover {
+        background-color: #45a049;
+    }
 
-        .contact button {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+    /* Correction du formulaire de contact */
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+    }
 
-        .contact button:hover {
-            background-color: #45a049;
-        }
+    .contact input, .contact textarea {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
 
-        /* Lien WhatsApp */
-        .whatsapp-link {
-            display: block;
-            margin-top: 20px;
-            background-color: #25D366;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-        }
+    .contact textarea {
+        height: 150px;
+    }
 
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            .carousel-container {
-                flex-direction: column;
-            }
+    .contact button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-            .cta-button {
-                font-size: 16px;
-                padding: 10px 20px;
-            }
+    .contact button:hover {
+        background-color: #45a049;
+    }
 
-            .contact {
-                padding: 10px;
-            }
-        }
-    </style> 
- </head> 
- <body> 
-  <header> 
-   <h1><i class="fas fa-globe"></i> Trouver Votre Avenir : Accompagnement Complet vers les Bourses d'Études Internationales</h1> 
-   <p class="motivating-text">"Vos rêves d'études à l'étranger commencent ici. Saisissez l'opportunité de transformer votre avenir !"</p>
-   <span class="cta-button" onclick="toggleServices()"><i class="fas fa-arrow-right"></i> Découvrez nos services</span>
-  </header> 
-  <div class="container"> 
+  </style>
+</head>
+
+<body> 
+  <header class="header"> 
+    <h1><i class="fas fa-globe"></i> Trouver Votre Avenir : Accompagnement Complet vers les Bourses d'Études Internationales</h1> 
+    <p>"Vos rêves d'études à l'étranger commencent ici. Saisissez l'opportunité de transformer votre avenir !"</p>
+  </header>
+
+  <!-- Bouton pour changer de thème -->
+  <div style="text-align: center;">
+    <button class="theme-toggle-button" onclick="toggleTheme()">Mode Clair/Sombre</button>
+  </div>
+
+  <!-- Bouton pour afficher la liste des pays -->
+  <div style="text-align: center;">
+    <button class="show-countries-button" onclick="toggleCountryList()">Pays et Bourses Disponibles</button>
+  </div>
+
+  <!-- Liste des pays et des bourses avec les drapeaux -->
+  <div class="country-list" id="country-list">
+    <h3>Pays et Bourses Disponibles :</h3>
+    <ul>
+      <li><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="France"> <strong>France :</strong> Bourse Eiffel, Bourses du gouvernement français</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" alt="Canada"> <strong>Canada :</strong> Bourse Vanier, Bourse d'études pour la Francophonie</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Allemagne"> <strong>Allemagne :</strong> Bourses DAAD, Bourse Heinrich Böll</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="États-Unis"> <strong>États-Unis :</strong> Fulbright, Bourses Rhodes</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg" alt="Australie"> <strong>Australie :</strong> Bourses Australia Awards, Bourse Endeavour</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brésil"> <strong>Brésil :</strong> Bourse CAPES, Bourse FAPESP</li>
+    </ul>
+  </div>
+
+  <!-- Section des services (Cachée par défaut) -->
+  <div class="container" id="services-container" style="display: none;"> 
    <section id="services" class="services"> 
     <h2><i class="fas fa-graduation-cap"></i> Nos services</h2> 
     <div class="service"> 
@@ -205,17 +242,37 @@
     </div> 
     <div class="service"> 
      <h3><i class="fas fa-star-half-alt"></i> Service Intermédiaire</h3> 
-     <p>Avec le service intermédiaire, bénéficiez de tout ce qui est inclus dans le service de base, mais avec un suivi plus intensif. Nous restons à vos côtés jusqu'à votre arrivée dans le pays de vos rêves. Nous vous aiderons à franchir chaque étape en toute sérénité. Tarif : 350$.</p> 
+     <p>Avec le service intermédiaire, bénéficiez de tout ce qui est inclus dans le service de base, mais avec un suivi plus intensif. Nous restons à vos côtés jusqu'à votre arrivée dans le pays de vos rêves. Tarif : 350$.</p> 
     </div> 
     <div class="service"> 
      <h3><i class="fas fa-star-of-life"></i> Service Premium</h3> 
-     <p>Notre service premium vous offre un accompagnement complet : de la recherche de la bourse idéale à l'installation dans votre nouveau pays. De plus, nous continuons à vous accompagner pendant un an après votre arrivée, notamment pour vous aider à trouver un logement et vous adapter à votre nouvel environnement. Tarif : 500$.</p> 
+     <p>Notre service premium vous offre un accompagnement complet : de la recherche de la bourse idéale à l'installation dans votre nouveau pays. Nous vous accompagnons pendant un an après votre arrivée. Tarif : 500$.</p> 
     </div> 
    </section> 
   </div> 
 
-  <!-- Lien WhatsApp -->
-  <a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
+  <!-- Section FAQ -->
+  <section id="faq" class="faq">
+    <h2>Questions Fréquemment Posées</h2>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(0)">Quels services proposez-vous ?</button>
+      <div class="faq-answer">
+        <p>Nous offrons des services de conseil, d'accompagnement personnalisé, et de suivi pour vous aider à préparer votre dossier de candidature aux bourses. Nous vous aidons à maximiser vos chances de succès grâce à nos conseils et notre expertise.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(1)">Pouvez-vous m'aider à postuler à une bourse ?</button>
+      <div class="faq-answer">
+        <p>Oui, nous offrons un accompagnement complet qui inclut la recherche de bourses adaptées à votre profil, ainsi que des conseils sur la préparation des documents nécessaires. Cependant, vous devrez soumettre vous-même votre candidature sur les sites officiels des bourses.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(2)">Quel est le coût des services d'accompagnement ?</button>
+      <div class="faq-answer">
+        <p>Nos services d'accompagnement varient selon le niveau d'assistance souhaité. Nous proposons des options à partir de 200 $ pour un suivi de base, jusqu'à 500 $ pour un accompagnement complet incluant l'assistance post-arrivée dans le pays.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Formulaire de contact -->
   <section id="contact" class="contact"> 
@@ -231,19 +288,60 @@
     </form> 
   </section>
 
+  <!-- Lien WhatsApp -->
+  <a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
+
+  <!-- Script pour changer de thème (sombre/clair) -->
   <script>
-    // Fonction pour afficher ou masquer les services
-    function toggleServices() {
-        const container = document.querySelector('.container');
-        if (container.style.display === 'none' || container.style.display === '') {
-            container.style.display = 'block';
+    function toggleTheme() {
+        document.body.classList.toggle('light-mode');
+        const header = document.querySelector('header');
+        const countryList = document.getElementById('country-list');
+        const servicesContainer = document.getElementById('services-container');
+        const buttons = document.querySelectorAll('.cta-button, .show-countries-button, .show-services-button');
+        
+        // Changer la couleur du texte dans le header pour s'adapter au thème
+        header.classList.toggle('light-mode');
+        
+        // Appliquer le mode clair aux autres éléments
+        countryList.classList.toggle('light-mode');
+        servicesContainer.classList.toggle('light-mode');
+        buttons.forEach(button => button.classList.toggle('light-mode'));
+    }
+  </script>
+
+  <!-- Script pour afficher/masquer la liste des pays -->
+  <script>
+    function toggleCountryList() {
+        const countryList = document.getElementById('country-list');
+        if (countryList.style.display === 'none' || countryList.style.display === '') {
+            countryList.style.display = 'block';
         } else {
-            container.style.display = 'none';
+            countryList.style.display = 'none';
         }
+    }
+
+    function toggleServices() {
+        const servicesContainer = document.getElementById('services-container');
+        if (servicesContainer.style.display === 'none' || servicesContainer.style.display === '') {
+            servicesContainer.style.display = 'block';
+        } else {
+            servicesContainer.style.display = 'none';
+        }
+    }
+  </script>
+
+  <!-- Script pour afficher/masquer les réponses de la FAQ -->
+  <script>
+    function toggleFaq(index) {
+        const answers = document.querySelectorAll('.faq-answer');
+        const answer = answers[index];
+        answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
     }
   </script>
 
   <!-- Tidio Chatbot Script -->
   <script src="//code.tidio.co/ztyhaj4ybg6ixedvizo8cujvlniwqnba.js" async></script>
+
 </body>
 </html>
