@@ -18,14 +18,15 @@
         transition: background-color 0.3s ease, color 0.3s ease; /* Transitions fluides entre les modes */
     }
 
-   header {
-    background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644'); /* Image représentant des étudiants de diverses origines */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 100px 0;
-    text-align: center;
-}
+    header {
+        background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644'); /* Image représentant des étudiants de diverses origines */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 50px 0; /* Ajustement pour mobile */
+        text-align: center;
+    }
+
     /* Mode clair pour le header */
     header.light-mode {
         color: #333; /* Texte noir en mode clair */
@@ -49,20 +50,21 @@
         background-color: #45a049;
     }
 
-    .show-countries-button, .show-services-button {
+    /* Boutons pour afficher les services et les pays */
+    .cta-button, .show-countries-button {
         background-color: #ff6f61;
         color: white;
-        padding: 15px 25px;
+        padding: 10px 20px; /* Ajustement pour mobile */
         text-decoration: none;
         border-radius: 5px;
         display: inline-block;
-        font-size: 18px;
+        font-size: 16px; /* Ajustement pour mobile */
         cursor: pointer;
-        margin: 20px 0;
+        margin: 10px 0;
         transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
 
-    .show-countries-button:hover, .show-services-button:hover {
+    .cta-button:hover, .show-countries-button:hover {
         background-color: #e55b50;
         transform: scale(1.05);
     }
@@ -71,7 +73,7 @@
     .country-list {
         display: none;
         margin-top: 20px;
-        padding: 20px;
+        padding: 10px; /* Ajustement pour mobile */
         background-color: #333;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
@@ -84,7 +86,7 @@
 
     .country-list li {
         margin-bottom: 10px;
-        font-size: 18px;
+        font-size: 16px; /* Ajustement pour mobile */
         background-color: #444;
         padding: 10px;
         border-radius: 5px;
@@ -108,29 +110,11 @@
         color: #4CAF50;
     }
 
-    .cta-button {
-        background-color: #ff6f61;
-        color: white;
-        padding: 15px 25px;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 20px;
-        font-size: 18px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-
-    .cta-button:hover {
-        background-color: #e55b50;
-        transform: scale(1.05);
-    }
-
     /* Fluidité du site avec des transitions douces */
     .service {
         border: 1px solid #444;
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: 10px; /* Ajustement pour mobile */
+        margin-bottom: 10px; /* Ajustement pour mobile */
         border-radius: 5px;
         background-color: #333;
         transition: box-shadow 0.3s ease-in-out;
@@ -142,28 +126,24 @@
         background-color: #444;
     }
 
-    /* Clair Mode Styles */
-    body.light-mode {
-        background-color: #f9f9f9;
-        color: #333; /* Texte noir pour le mode clair */
-    }
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        header {
+            padding: 50px 10px; /* Moins d'espace en haut pour mobile */
+        }
 
-    .country-list.light-mode {
-        background-color: #f7f7f7;
-    }
+        .cta-button, .theme-toggle-button, .show-countries-button {
+            font-size: 14px;
+            padding: 10px 15px; /* Adapter la taille pour petits écrans */
+        }
 
-    .service.light-mode {
-        background-color: #fff;
-        color: #333;
-    }
+        .country-list ul, .service {
+            font-size: 14px; /* Réduire la taille de la police */
+        }
 
-    .cta-button.light-mode, .show-countries-button.light-mode, .show-services-button.light-mode {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .cta-button.light-mode:hover, .show-countries-button.light-mode:hover, .show-services-button.light-mode:hover {
-        background-color: #45a049;
+        .contact form {
+            padding: 10px;
+        }
     }
 
     /* Correction du formulaire de contact */
@@ -207,17 +187,11 @@
   <header class="header"> 
     <h1><i class="fas fa-globe"></i> Trouver Votre Avenir : Accompagnement Complet vers les Bourses d'Études Internationales</h1> 
     <p>"Vos rêves d'études à l'étranger commencent ici. Saisissez l'opportunité de transformer votre avenir !"</p>
-  </header>
-
-  <!-- Bouton pour changer de thème -->
-  <div style="text-align: center;">
-    <button class="theme-toggle-button" onclick="toggleTheme()">Mode Clair/Sombre</button>
-  </div>
-
-  <!-- Bouton pour afficher la liste des pays -->
-  <div style="text-align: center;">
+    <!-- Bouton pour afficher les services -->
+    <button class="cta-button" onclick="toggleServices()">Découvrez nos services</button>
+    <!-- Bouton pour afficher les pays et bourses -->
     <button class="show-countries-button" onclick="toggleCountryList()">Pays et Bourses Disponibles</button>
-  </div>
+  </header>
 
   <!-- Liste des pays et des bourses avec les drapeaux -->
   <div class="country-list" id="country-list">
@@ -237,7 +211,7 @@
    <section id="services" class="services"> 
     <h2><i class="fas fa-graduation-cap"></i> Nos services</h2> 
     <div class="service"> 
-     <h3><i class="fas fa-star"></i> Service Basique</h3> 
+     <h3><i class="fas fa-star"></i> Service Basique</h3>
      <p>Ce service de base vous guide pour trouver la bourse idéale qui correspond à vos aspirations académiques. Vous recevrez des conseils personnalisés sur la préparation de vos documents et un suivi tout au long du processus de candidature. Tarif : 200$.</p> 
     </div> 
     <div class="service"> 
@@ -291,22 +265,15 @@
   <!-- Lien WhatsApp -->
   <a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
 
-  <!-- Script pour changer de thème (sombre/clair) -->
+  <!-- Script pour afficher/masquer les services -->
   <script>
-    function toggleTheme() {
-        document.body.classList.toggle('light-mode');
-        const header = document.querySelector('header');
-        const countryList = document.getElementById('country-list');
+    function toggleServices() {
         const servicesContainer = document.getElementById('services-container');
-        const buttons = document.querySelectorAll('.cta-button, .show-countries-button, .show-services-button');
-        
-        // Changer la couleur du texte dans le header pour s'adapter au thème
-        header.classList.toggle('light-mode');
-        
-        // Appliquer le mode clair aux autres éléments
-        countryList.classList.toggle('light-mode');
-        servicesContainer.classList.toggle('light-mode');
-        buttons.forEach(button => button.classList.toggle('light-mode'));
+        if (servicesContainer.style.display === 'none' || servicesContainer.style.display === '') {
+            servicesContainer.style.display = 'block'; // Afficher les services
+        } else {
+            servicesContainer.style.display = 'none'; // Cacher les services
+        }
     }
   </script>
 
@@ -315,18 +282,9 @@
     function toggleCountryList() {
         const countryList = document.getElementById('country-list');
         if (countryList.style.display === 'none' || countryList.style.display === '') {
-            countryList.style.display = 'block';
+            countryList.style.display = 'block'; // Afficher la liste des pays
         } else {
-            countryList.style.display = 'none';
-        }
-    }
-
-    function toggleServices() {
-        const servicesContainer = document.getElementById('services-container');
-        if (servicesContainer.style.display === 'none' || servicesContainer.style.display === '') {
-            servicesContainer.style.display = 'block';
-        } else {
-            servicesContainer.style.display = 'none';
+            countryList.style.display = 'none'; // Cacher la liste des pays
         }
     }
   </script>
