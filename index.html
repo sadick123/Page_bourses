@@ -192,9 +192,21 @@
             padding: 60px 10px;
         }
 
-        .cta-button, .show-countries-button {
-            font-size: 16px;
-            padding: 10px 20px;
+        h1 {
+            font-size: 1.8em; /* Taille réduite pour les petits écrans */
+        }
+
+        p {
+            font-size: 1em; /* Réduire légèrement la taille du paragraphe */
+        }
+
+        .cta-button, .show-countries-button, .theme-toggle-button {
+            font-size: 14px; /* Ajuster la taille des boutons */
+            padding: 8px 15px; /* Réduire les marges et la taille des boutons */
+        }
+
+        .container {
+            padding: 10px;
         }
 
         .contact form input, .contact textarea {
@@ -250,7 +262,7 @@
             <h4>PEC-G (Programme d'Étudiants-Convention de Premier Cycle)</h4>
             <p>Programme permettant aux étudiants étrangers issus de pays en développement de suivre des études de premier cycle au Brésil.</p>
             <h4>Bourse CAPES</h4>
-            <p>Bourse destinée aux étudiants de Master, Doctorat et Post-Doctorat, avec un accent sur la recherchescientifique dans les universités brésiliennes.</p>
+            <p>Bourse destinée aux étudiants de Master, Doctorat et Post-Doctorat, avec un accent sur la recherche scientifique dans les universités brésiliennes.</p>
             <h4>Bourse FAPESP</h4>
             <p>Programme de financement pour la recherche scientifique dans l'État de São Paulo.</p>
         </div>
@@ -320,10 +332,10 @@
             <p>Programme de bourses pour les étudiants en Master ou Doctorat dans des domaines variés, promouvant l'excellence académique.</p>
         </div>
     </div>
-</div>
+  </div>
 
-<!-- Section des services (Cachée par défaut) -->
-<div class="container" id="services-container" style="display: none;"> 
+  <!-- Section des services (Cachée par défaut) -->
+  <div class="container" id="services-container" style="display: none;"> 
    <section id="services" class="services"> 
     <h2><i class="fas fa-graduation-cap"></i> Nos services</h2> 
     <div class="service"> 
@@ -339,10 +351,10 @@
      <p>Notre service premium vous offre un accompagnement complet : de la recherche de la bourse idéale à l'installation dans votre nouveau pays. Nous vous accompagnons pendant un an après votre arrivée. Tarif : 500$.</p> 
     </div> 
    </section> 
-</div> 
+  </div> 
 
-<!-- Section FAQ -->
-<section id="faq" class="faq">
+  <!-- Section FAQ -->
+  <section id="faq" class="faq">
     <h2>Questions Fréquemment Posées</h2>
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(0)">Quels services proposez-vous ?</button>
@@ -362,10 +374,10 @@
         <p>Nos services d'accompagnement varient selon le niveau d'assistance souhaité. Nous proposons des options à partir de 200 $ pour un suivi de base, jusqu'à 500 $ pour un accompagnement complet incluant l'assistance post-arrivée dans le pays.</p>
       </div>
     </div>
-</section>
+  </section>
 
-<!-- Formulaire de contact -->
-<section id="contact" class="contact container"> 
+  <!-- Formulaire de contact -->
+  <section id="contact" class="contact container"> 
     <h2>Contactez-nous</h2> 
     <form action="mailto:bodiaboubakarsadick6@gmail.com" method="post" enctype="text/plain"> 
      <label for="name">Nom :</label> 
@@ -376,35 +388,35 @@
      <textarea id="message" name="message" required></textarea> 
      <button type="submit">Envoyer</button> 
     </form> 
-</section>
+  </section>
 
-<!-- Lien WhatsApp -->
-<a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
+  <!-- Lien WhatsApp -->
+  <a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
 
-<!-- Script pour changer de thème (clair/sombre) -->
-<script>
+  <!-- Script pour changer de thème (clair/sombre) -->
+  <script>
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
         document.querySelector('header').classList.toggle('dark-mode');
         document.querySelectorAll('.container, .service, .country-list').forEach(function(el) {
             el.classList.toggle('dark-mode');
         });
-        document.querySelectorAll('.cta-button, .show-countries-button, .theme-toggle-button').forEach(function(el) {
+        document.querySelectorAll('.>cta-button, .show-countries-button, .theme-toggle-button').forEach(function(el) {
             el.classList.toggle('dark-mode');
         });
     }
-</script>
+  </script>
 
-<!-- Script pour afficher/masquer la liste des pays -->
-<script>
+  <!-- Script pour afficher/masquer la liste des pays -->
+  <script>
     function toggleCountryList() {
-    const countryList = document.getElementById('country-list');
-    if (countryList.style.display === 'none' || countryList.style.display === '') {
-        countryList.style.display = 'block'; // Afficher la liste des pays
-    } else {
-        countryList.style.display = 'none'; // Cacher la liste des pays
+        const countryList = document.getElementById('country-list');
+        if (countryList.style.display === 'none' || countryList.style.display === '') {
+            countryList.style.display = 'block'; // Afficher la liste des pays
+        } else {
+            countryList.style.display = 'none'; // Cacher la liste des pays
+        }
     }
-}
 
     function toggleServices() {
         const servicesContainer = document.getElementById('services-container');
@@ -414,19 +426,19 @@
             servicesContainer.style.display = 'none'; // Cacher les services
         }
     }
-</script>
+  </script>
 
-<!-- Script pour afficher/masquer les réponses de la FAQ -->
-<script>
+  <!-- Script pour afficher/masquer les réponses de la FAQ -->
+  <script>
     function toggleFaq(index) {
         const answers = document.querySelectorAll('.faq-answer');
         const answer = answers[index];
         answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
     }
-</script>
+  </script>
 
-<!-- Tidio Chatbot Script -->
-<script src="//code.tidio.co/ztyhaj4ybg6ixedvizo8cujvlniwqnba.js" async></script>
+  <!-- Tidio Chatbot Script -->
+  <script src="//code.tidio.co/ztyhaj4ybg6ixedvizo8cujvlniwqnba.js" async></script>
 
 </body>
 </html>
