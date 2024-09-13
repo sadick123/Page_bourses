@@ -15,12 +15,19 @@
         background-color: #f0f0f0; /* Mode clair par défaut */
         line-height: 1.6;
         font-size: 18px;
-        color: #333; /* Texte noir pour le mode clair */
-        transition: background-color 0.3s ease, color 0.3s ease; /* Transitions fluides entre les modes */
+        color: #333;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Centrer le contenu globalement */
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
     }
 
     header {
-        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644'); /* Image avec overlay sombre */
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644');
         background-size: cover;
         background-position: center;
         color: white;
@@ -40,7 +47,7 @@
         font-weight: 400;
     }
 
-    /* Amélioration des boutons */
+    /* Ajuster les bordures et l'espacement autour des boutons */
     .cta-button, .show-countries-button {
         background-color: #ff6f61;
         color: white;
@@ -90,16 +97,22 @@
         gap: 15px;
     }
 
-    .container, .country-list {
+    /* Section marges */
+    section {
+        margin-bottom: 40px;
+    }
+
+    /* Styles des sections pays et services */
+    .country-list, .services {
         margin: 40px auto;
-        max-width: 1200px;
+        max-width: 1100px;
         padding: 20px;
         background-color: #fff;
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .service {
+    .country-item {
         margin-bottom: 20px;
         padding: 20px;
         background-color: #f9f9f9;
@@ -108,42 +121,69 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .service:hover {
+    .country-item:hover {
         transform: scale(1.03);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
-    .service h3 {
-        font-size: 1.5em;
-        font-weight: 500;
-    }
-
-    /* Fluidité et transitions */
-    .country-list ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .country-list li {
-        margin-bottom: 15px;
-        font-size: 18px;
-        background-color: #f9f9f9;
-        padding: 15px;
-        border-radius: 10px;
+    .country-flag-name {
         display: flex;
         align-items: center;
-        transition: box-shadow 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
     }
 
-    .country-list img {
+    .country-flag-name img {
+        margin-right: 10px;
         width: 30px;
         height: 20px;
-        margin-right: 10px;
     }
 
-    .country-list li:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Formulaire bien centré */
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact form input, .contact textarea {
+        width: 100%;
+        max-width: 600px;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    .contact form button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .contact form button:hover {
+        background-color: #45a049;
+    }
+
+    /* Lien WhatsApp */
+    .whatsapp-link {
+        color: #25D366;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    .whatsapp-link:hover {
+        color: #128C7E;
+        text-decoration: underline;
     }
 
     /* Responsiveness pour mobile */
@@ -152,17 +192,13 @@
             padding: 60px 10px;
         }
 
-        .cta-button, .show-countries-button, .theme-toggle-button {
+        .cta-button, .show-countries-button {
             font-size: 16px;
             padding: 10px 20px;
         }
 
-        .service h3 {
-            font-size: 1.2em;
-        }
-
-        .country-list li {
-            font-size: 16px;
+        .contact form input, .contact textarea {
+            width: 100%;
         }
     }
 
@@ -176,53 +212,12 @@
         background-color: #333;
     }
 
-    .container.dark-mode, .service.dark-mode, .country-list.dark-mode {
+    .country-list.dark-mode, .services.dark-mode {
         background-color: #222;
     }
 
     .cta-button.dark-mode, .show-countries-button.dark-mode, .theme-toggle-button.dark-mode {
         background-color: #555;
-    }
-
-    /* Style pour le formulaire de contact */
-    .contact form input, .contact textarea {
-        width: calc(100% - 30px); /* Ajuste la largeur des champs */
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-
-    .contact form input[type="submit"], .contact form button {
-        width: 100px;
-        padding: 10px 15px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    .contact form input[type="submit"]:hover, .contact form button:hover {
-        background-color: #45a049;
-    }
-
-    /* Lien WhatsApp */
-    .whatsapp-link {
-        color: #25D366; /* Vert WhatsApp */
-        text-decoration: none;
-        font-weight: bold;
-        margin-top: 10px;
-        display: block;
-    }
-
-    .whatsapp-link:hover {
-        color: #128C7E; /* Couleur plus sombre au survol */
-        text-decoration: underline;
     }
   </style>
 </head>
@@ -243,8 +238,9 @@
   </header>
 
   <!-- Liste des pays et des bourses avec les drapeaux -->
-  <div class="country-list" id="country-list" style="display: none;">
+  <div class="country-list container" id="country-list" style="display: none;">
     <h3>Pays et Bourses Disponibles :</h3>
+
     <div class="country-item">
         <div class="country-flag-name">
             <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brésil">
@@ -254,7 +250,7 @@
             <h4>PEC-G (Programme d'Étudiants-Convention de Premier Cycle)</h4>
             <p>Programme permettant aux étudiants étrangers issus de pays en développement de suivre des études de premier cycle au Brésil.</p>
             <h4>Bourse CAPES</h4>
-            <p>Bourse destinée aux étudiants de Master, Doctorat et Post-Doctorat, avec un accent sur la recherche scientifique dans les universités brésiliennes.</p>
+            <p>Bourse destinée aux étudiants de Master, Doctorat et Post-Doctorat, avec un accent sur la recherchescientifique dans les universités brésiliennes.</p>
             <h4>Bourse FAPESP</h4>
             <p>Programme de financement pour la recherche scientifique dans l'État de São Paulo.</p>
         </div>
@@ -324,10 +320,10 @@
             <p>Programme de bourses pour les étudiants en Master ou Doctorat dans des domaines variés, promouvant l'excellence académique.</p>
         </div>
     </div>
-  </div>
+</div>
 
-  <!-- Section des services (Cachée par défaut) -->
-  <div class="container" id="services-container" style="display: none;"> 
+<!-- Section des services (Cachée par défaut) -->
+<div class="container" id="services-container" style="display: none;"> 
    <section id="services" class="services"> 
     <h2><i class="fas fa-graduation-cap"></i> Nos services</h2> 
     <div class="service"> 
@@ -343,10 +339,10 @@
      <p>Notre service premium vous offre un accompagnement complet : de la recherche de la bourse idéale à l'installation dans votre nouveau pays. Nous vous accompagnons pendant un an après votre arrivée. Tarif : 500$.</p> 
     </div> 
    </section> 
-  </div> 
+</div> 
 
-  <!-- Section FAQ -->
-  <section id="faq" class="faq">
+<!-- Section FAQ -->
+<section id="faq" class="faq">
     <h2>Questions Fréquemment Posées</h2>
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(0)">Quels services proposez-vous ?</button>
@@ -366,10 +362,10 @@
         <p>Nos services d'accompagnement varient selon le niveau d'assistance souhaité. Nous proposons des options à partir de 200 $ pour un suivi de base, jusqu'à 500 $ pour un accompagnement complet incluant l'assistance post-arrivée dans le pays.</p>
       </div>
     </div>
-  </section>
+</section>
 
-  <!-- Formulaire de contact -->
-  <section id="contact" class="contact"> 
+<!-- Formulaire de contact -->
+<section id="contact" class="contact container"> 
     <h2>Contactez-nous</h2> 
     <form action="mailto:bodiaboubakarsadick6@gmail.com" method="post" enctype="text/plain"> 
      <label for="name">Nom :</label> 
@@ -380,13 +376,13 @@
      <textarea id="message" name="message" required></textarea> 
      <button type="submit">Envoyer</button> 
     </form> 
-  </section>
+</section>
 
-  <!-- Lien WhatsApp -->
-  <a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
+<!-- Lien WhatsApp -->
+<a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
 
-  <!-- Script pour changer de thème (clair/sombre) -->
-  <script>
+<!-- Script pour changer de thème (clair/sombre) -->
+<script>
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
         document.querySelector('header').classList.toggle('dark-mode');
@@ -397,18 +393,18 @@
             el.classList.toggle('dark-mode');
         });
     }
-  </script>
+</script>
 
-  <!-- Script pour afficher/masquer la liste des pays -->
-  <script>
+<!-- Script pour afficher/masquer la liste des pays -->
+<script>
     function toggleCountryList() {
-        const countryList = document.getElementById('country-list');
-        if (countryList.style.display === 'none' || countryList.style.display === '') {
-            countryList.style.display = 'block'; // Afficher la liste des pays
-        } else {
-            countryList.style.display = 'none'; // Cacher la liste des pays
-        }
+    const countryList = document.getElementById('country-list');
+    if (countryList.style.display === 'none' || countryList.style.display === '') {
+        countryList.style.display = 'block'; // Afficher la liste des pays
+    } else {
+        countryList.style.display = 'none'; // Cacher la liste des pays
     }
+}
 
     function toggleServices() {
         const servicesContainer = document.getElementById('services-container');
@@ -418,19 +414,19 @@
             servicesContainer.style.display = 'none'; // Cacher les services
         }
     }
-  </script>
+</script>
 
-  <!-- Script pour afficher/masquer les réponses de la FAQ -->
-  <script>
+<!-- Script pour afficher/masquer les réponses de la FAQ -->
+<script>
     function toggleFaq(index) {
         const answers = document.querySelectorAll('.faq-answer');
         const answer = answers[index];
         answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
     }
-  </script>
+</script>
 
-  <!-- Tidio Chatbot Script -->
-  <script src="//code.tidio.co/ztyhaj4ybg6ixedvizo8cujvlniwqnba.js" async></script>
+<!-- Tidio Chatbot Script -->
+<script src="//code.tidio.co/ztyhaj4ybg6ixedvizo8cujvlniwqnba.js" async></script>
 
 </body>
 </html>
