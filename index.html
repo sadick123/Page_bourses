@@ -11,7 +11,7 @@
     body {
         font-family: 'Roboto', sans-serif;
         margin: 0;
-        padding: 0;
+        padding: 20px; /* Ajout de padding global pour éviter que le contenu soit collé aux bords */
         background-color: #f0f0f0; /* Mode clair par défaut */
         line-height: 1.6;
         font-size: 18px;
@@ -93,7 +93,7 @@
     .container, .country-list {
         margin: 40px auto;
         max-width: 1200px;
-        padding: 20px;
+        padding: 40px; /* Augmente le padding pour plus d'espace interne */
         background-color: #fff;
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -124,25 +124,28 @@
         padding: 0;
     }
 
-    .country-list li {
-        margin-bottom: 15px;
-        font-size: 18px;
+    .country-item {
+        margin-bottom: 20px;
+        padding: 20px;
         background-color: #f9f9f9;
-        padding: 15px;
         border-radius: 10px;
-        display: flex;
-        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .country-list img {
+    .country-flag-name {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .country-flag-name img {
         width: 30px;
         height: 20px;
         margin-right: 10px;
     }
 
-    .country-list li:hover {
+    .country-item:hover {
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
@@ -176,7 +179,7 @@
         background-color: #333;
     }
 
-    .container.dark-mode, .service.dark-mode, .country-list.dark-mode {
+    .container.dark-mode, .service.dark-mode, .country-item.dark-mode {
         background-color: #222;
     }
 
@@ -243,17 +246,90 @@
   </header>
 
   <!-- Liste des pays et des bourses avec les drapeaux -->
+  
   <div class="country-list" id="country-list" style="display: none;">
     <h3>Pays et Bourses Disponibles :</h3>
-    <ul>
-      <li><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="France"> <strong>France :</strong> Bourse Eiffel, Bourses du gouvernement français</li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" alt="Canada"> <strong>Canada :</strong> Bourse Vanier, Bourse d'études pour la Francophonie</li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Allemagne"> <strong>Allemagne :</strong> Bourses DAAD, Bourse Heinrich Böll</li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="États-Unis"> <strong>États-Unis :</strong> Fulbright, Bourses Rhodes</li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg" alt="Australie"> <strong>Australie :</strong> Bourses Australia Awards, Bourse Endeavour</li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brésil"> <strong>Brésil :</strong> Bourse CAPES, Bourse FAPESP</li>
-    </ul>
-  </div>
+
+    <div class="country-item">
+        <div class="country-flag-name">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brésil">
+            <strong>Brésil</strong>
+        </div>
+        <div class="scholarship-info">
+            <h4>PEC-G (Programme d'Étudiants-Convention de Premier Cycle)</h4>
+            <p>Programme permettant aux étudiants étrangers issus de pays en développement de suivre des études de premier cycle au Brésil.</p>
+            <h4>Bourse CAPES</h4>
+            <p>Bourse destinée aux étudiants de Master, Doctorat et Post-Doctorat, avec un accent sur la recherche scientifique dans les universités brésiliennes.</p>
+            <h4>Bourse FAPESP</h4>
+            <p>Programme de financement pour la recherche scientifique dans l'État de São Paulo.</p>
+        </div>
+    </div>
+
+    <div class="country-item">
+        <div class="country-flag-name">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="France">
+            <strong>France</strong>
+        </div>
+        <div class="scholarship-info">
+            <h4>Bourse Eiffel</h4>
+            <p>Programme destiné aux étudiants internationaux souhaitant suivre un Master ou Doctorat dans des disciplines comme l'ingénierie, les sciences politiques, et le droit.</p>
+            <h4>Campus France</h4>
+            <p>Organisation qui centralise les bourses et programmes de formation pour les étudiants étrangers. Propose des bourses d'étude pour Master, Doctorat et programmes d'échange.</p>
+        </div>
+    </div>
+
+    <div class="country-item">
+        <div class="country-flag-name">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" alt="Canada">
+            <strong>Canada</strong>
+        </div>
+        <div class="scholarship-info">
+            <h4>Bourse Vanier</h4>
+            <p>Bourse destinée aux étudiants de Master, Doctorat et Post-Doctorat dans divers domaines, favorisant la recherche de haut niveau.</p>
+            <h4>Bourse d'études pour la Francophonie</h4>
+            <p>Bourse dédiée aux étudiants francophones provenant de pays en développement, couvrant les études supérieures au Canada.</p>
+        </div>
+    </div>
+
+    <div class="country-item">
+        <div class="country-flag-name">
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Allemagne">
+            <strong>Allemagne</strong>
+        </div>
+        <div class="scholarship-info">
+            <h4>Bourses DAAD</h4>
+            <p>Programme de bourses financé par le gouvernement allemand pour soutenir les étudiants internationaux dans divers domaines académiques.</p>
+            <h4>Bourse Heinrich Böll</h4>
+            <p>Bourse pour des études en Master ou Doctorat avec une emphase sur les disciplines liées au développement durable et aux droits de l'homme.</p>
+        </div>
+    </div>
+
+    <div class="country-item">
+        <div class="country-flag-name">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="États-Unis">
+            <strong>États-Unis</strong>
+        </div>
+        <div class="scholarship-info">
+            <h4>Programme Fulbright</h4>
+            <p>Bourse couvrant les études supérieures pour des étudiants internationaux dans de nombreuses disciplines académiques.</p>
+            <h4>Bourses Rhodes</h4>
+            <p>Programme de bourses basé à l'Université d'Oxford, couvrant les frais de scolarité et de séjour pour des étudiants talentueux venant des États-Unis et d'autres pays.</p>
+        </div>
+    </div>
+
+    <div class="country-item">
+        <div class="country-flag-name">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg" alt="Australie">
+            <strong>Australie</strong>
+        </div>
+        <div class="scholarship-info">
+            <h4>Australia Awards</h4>
+            <p>Bourse offerte par le gouvernement australien pour financer les études dans les universités australiennes pour des étudiants internationaux.</p>
+            <h4>Bourse Endeavour</h4>
+            <p>Programme de bourses pour les étudiants en Master ou Doctorat dans des domaines variés, promouvant l'excellence académique.</p>
+        </div>
+    </div>
+</div>
 
   <!-- Section des services (Cachée par défaut) -->
   <div class="container" id="services-container" style="display: none;"> 
@@ -314,12 +390,12 @@
   <!-- Lien WhatsApp -->
   <a class="whatsapp-link" href="https://wa.me/5553981600191" target="_blank">Contactez-nous via WhatsApp</a>
 
-  <!-- Script pour changer de thème (clair/sombre) -->
+  <!-- Script pourchanger de thème (clair/sombre) -->
   <script>
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
         document.querySelector('header').classList.toggle('dark-mode');
-        document.querySelectorAll('.container, .service, .country-list').forEach(function(el) {
+        document.querySelectorAll('.container, .service, .country-item').forEach(function(el) {
             el.classList.toggle('dark-mode');
         });
         document.querySelectorAll('.cta-button, .show-countries-button, .theme-toggle-button').forEach(function(el) {
